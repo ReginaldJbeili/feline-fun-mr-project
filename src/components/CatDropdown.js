@@ -10,10 +10,18 @@ const CatDropdown = () => {
 
     console.log('This is all the cat data', catData);
 
+    if (!catData) {return <h2>Loading...</h2>}
+
     return (
-        <div>
-            
-        </div>
+        <select>
+
+                {catData.map( cats => {
+                    return (<option key={cats.id}> {cats.name} </option>)
+                }
+
+                )}
+        
+        </select>
     )
 }
 
