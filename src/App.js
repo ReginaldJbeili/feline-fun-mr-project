@@ -21,14 +21,14 @@ const App = () => {
 
 
 
-if(!catEnergy) return <h2>Loading...</h2>
+if(!catData) return <h2>Loading...</h2>
 
   return (
     <div className="App">
       <header className="App-header">
         
         <CatDropdown catData={catData}  selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
-        <CatInfo catInfo={catInfo} catEnergy={catEnergy} />
+        <CatInfo catInfo={catInfo} catEnergy={catEnergy} setCatEnergy = {setCatEnergy} selectedCat ={selectedCat}/>
         
       </header>
     </div>
