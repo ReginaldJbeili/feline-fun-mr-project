@@ -17,7 +17,6 @@ const CatDropdown = props => {
                     )}
             
             </select>
-            <button id="chooseCatBtn"> Play the Game! </button>
         </div>
     )
     
