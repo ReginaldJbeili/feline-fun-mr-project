@@ -12,17 +12,31 @@ const CatDropdown = () => {
 
     if (!catData) {return <h2>Loading...</h2>}
 
-    return (
-        <select>
+    // // use chosenCat.value to find the selected cat
+    // let chosenCat = document.getElementById("chosenCat");
+    // let chooseCatBtn = document.getElementById("chosenCatBtn");
 
-                {catData.map( cats => {
-                    return (<option key={cats.id}> {cats.name} </option>)
-                }
-
-                )}
+    // chooseCatBtn.addEventListener('click', ()=> {
         
-        </select>
+    //     console.log("This is the cat I choose!", chosenCat)
+    // })
+    return (
+        <div>
+            <select id="chosenCat">
+                    {catData.map( cats => {
+                        return (<option key={cats.id}> {cats.name} </option>)
+                    }
+
+                    )}
+            
+            </select>
+            <button id="chooseCatBtn"> Play the Game! </button>
+        </div>
     )
+    
 }
+
+
+
 
 export default CatDropdown

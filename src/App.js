@@ -2,6 +2,7 @@ import React from 'react';
 import logo from './logo.svg';
 import './App.css';
 import CatDropdown from './components/CatDropdown';
+import CatInfo from './components/CatInfo';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
           Edit <code>src/App.js</code> and save to reload.
         </p>
         <CatDropdown />
+        <CatInfo />
         <a
           className="App-link"
           href="https://reactjs.org"
