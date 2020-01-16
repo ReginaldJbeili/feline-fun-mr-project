@@ -13,18 +13,22 @@ const App = () => {
 
   const [catInfo, setCatInfo] = React.useState(null);
   const [selectedCat, setSelectedCat] = React.useState("abys")
+  const [catEnergy, setCatEnergy] = React.useState(null);
 
   React.useEffect(() => {
-      getCatInfo(selectedCat).then(data => {setCatInfo(data);})
+      getCatInfo(selectedCat).then(data => {setCatInfo(data); setCatEnergy(data[0].breeds[0].energy_level)})
   }, [selectedCat])
 
+
+
+if(!catEnergy) return <h2>Loading...</h2>
 
   return (
     <div className="App">
       <header className="App-header">
         
         <CatDropdown catData={catData}  selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
-        <CatInfo catInfo={catInfo}  />
+        <CatInfo catInfo={catInfo} catEnergy={catEnergy} />
         
       </header>
     </div>
