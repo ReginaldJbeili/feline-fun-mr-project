@@ -1,16 +1,30 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import CatDropdown from './components/CatDropdown';
 import CatInfo from './components/CatInfo';
+import getAllCatBreeds from './utils/getAllCatBreeds'
+import getCatInfo from './utils/getCatInfo'
 
-function App() {
+const App = () => {
+  const [catData, setCatData] = React.useState(null); 
+  React.useEffect(() => {
+      getAllCatBreeds().then(data => setCatData(data));
+  }, []);
+
+  const [catInfo, setCatInfo] = React.useState(null);
+  const [selectedCat, setSelectedCat] = React.useState("abys")
+
+  React.useEffect(() => {
+      getCatInfo(selectedCat).then(data => {setCatInfo(data);})
+  }, [selectedCat])
+
+
   return (
     <div className="App">
       <header className="App-header">
         
-        <CatDropdown />
-        <CatInfo />
+        <CatDropdown catData={catData}  selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
+        <CatInfo catInfo={catInfo}  />
         
       </header>
     </div>
