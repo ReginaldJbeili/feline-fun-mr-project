@@ -16,7 +16,7 @@ const CatInfo = props => {
     if(catEnergy==0) {
         return (
             <div>
-                <h1>YOU LOSE!</h1>
+                <h1 className="lose">YOU LOSE!</h1>
                 <iframe src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" width="480" height="438" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/YmVNzDnboB0RQEpmLr"></a></p>
             </div>
         )
@@ -24,8 +24,10 @@ const CatInfo = props => {
 
     return (
         <div>
+            <div className="frame">
             <h1>{props.catInfo[0].breeds[0].name}</h1>
             <p>{props.catInfo[0].breeds[0].description}</p>
+            </div>
             <EnergyMetre catEnergy={catEnergy} setCatEnergy={setCatEnergy} selectedCat={selectedCat}/>
             <img src={props.catInfo[0].url} alt={`${props.catInfo[0].breeds[0].name} cat`}></img>
         </div>

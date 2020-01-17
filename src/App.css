@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background-color: bisque;
+  background: url(https://cdn5.vectorstock.com/i/1000x1000/23/04/cute-cat-in-a-cup-coffee-seamless-pattern-vector-26662304.jpg);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -45,8 +45,8 @@
 }
 
 img {
-  min-height: 40vh;
-  max-width: 90%;
+  max-height: 30vh;
+  max-width: 70%;
   object-fit: cover;
   border: 1rem dashed #271500;
   animation: borderFlash 1s linear infinite;
@@ -68,11 +68,26 @@ iframe {
   border: 1rem dashed rgb(219, 38, 38);
 }
 
+.frame {
+  background-color: rgb(245, 245, 245, 0.9);
+  border: 5px solid rgb(105, 58, 1);
+  max-width: 75%;
+  margin: 1rem auto 2rem auto;;
+}
+
+.lose {
+  color: rgb(219, 38, 38);
+  /* text-decoration: underline; */
+  background-color: rgb(245, 245, 245, 0.9);
+  border-radius: 0.5rem;
+  border: 5px solid rgb(219, 38, 38)
+}
+
 progress[value] {
   min-width: 60vw;
-  min-height: 1.5rem;
-  border: 1px solid black;
-  border-radius: 5px;
+  min-height: 2.5rem;
+  border: 10px solid black;
+  border-radius: 10px;
   margin: 1.5rem
 }
 
