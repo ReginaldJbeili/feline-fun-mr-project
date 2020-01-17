@@ -25,15 +25,13 @@ const EnergyMetre = props => {
           {/* <h3>{`Energy Level: ${props.catEnergy}/5`}</h3>   */}
           <span>Feed your cat before its' life runs out!</span>
           <progress max="5" value={`${props.catEnergy}`}></progress>
-          <button onClick={(e) => {
-                e.preventDefault()
+          <button onClick={() => {
                 props.setCatEnergy(prevCatEnergy => {
                 if(prevCatEnergy>0 && prevCatEnergy < 5) 
                 return prevCatEnergy +1
             })
         }}>FEED</button>
-            <button onClick={(e) => {
-                e.preventDefault()
+            <button onClick={() => {
                 props.setCatEnergy(prevCatEnergy => {
                 if(prevCatEnergy>0 && prevCatEnergy < 5) 
                 return prevCatEnergy +1
