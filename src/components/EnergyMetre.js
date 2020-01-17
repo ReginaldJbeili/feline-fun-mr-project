@@ -30,17 +30,25 @@ const EnergyMetre = props => {
           <progress max="5" value={`${props.catEnergy}`}></progress>
           <button disabled={disableFeed} onClick={() => {
                 
-                props.setCatEnergy(prevCatEnergy => {
-                if(prevCatEnergy>0 && prevCatEnergy < 5) 
-                setDisableFeed(!disableFeed)
-                setTimeout(() => {setDisableFeed(disableFeed)},1500)
+              props.setCatEnergy(prevCatEnergy => {
+                if (props.catEnergy === 5) {
+                    setDisableFeed(!disableFeed)
+                    setTimeout(() => {setDisableFeed(disableFeed)},3000)
+                    }
+                else if(prevCatEnergy>0 && prevCatEnergy < 5) 
+                    setDisableFeed(!disableFeed)
+                    setTimeout(() => {setDisableFeed(disableFeed)},1500)
                 return prevCatEnergy +1
             })
             }}>FEED</button>
     
           <button disabled ={disablePlay} onClick={() => {
                 props.setCatEnergy(prevCatEnergy => {
-                if(prevCatEnergy>0 && prevCatEnergy < 5) 
+                if (props.catEnergy === 5) {
+                    setDisablePlay(!disablePlay)
+                    setTimeout(() => {setDisablePlay(disablePlay)},3000)
+                    }
+                else if(prevCatEnergy>0 && prevCatEnergy < 5) 
                 setDisablePlay(!disablePlay)
                 setTimeout(() => {setDisablePlay(disablePlay)},1000)
                 return prevCatEnergy +1
