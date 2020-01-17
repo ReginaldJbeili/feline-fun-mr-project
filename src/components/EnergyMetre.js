@@ -2,8 +2,6 @@ import React from 'react'
 
 const EnergyMetre = ({catEnergy,setCatEnergy,selectedCat}) => {
     
-    // const [catEnergy, setCatEnergy] = React.useState(5)
-// console.log(props);
     React.useEffect(() => {
         
         const energyCount = setInterval(() => {
@@ -13,7 +11,6 @@ const EnergyMetre = ({catEnergy,setCatEnergy,selectedCat}) => {
                 return prevCatEnergy-1
             })
         }, 1500)
-        // return (() => clearInterval(energyCount))
     
     },[selectedCat])
 
