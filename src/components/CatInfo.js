@@ -17,7 +17,7 @@ const CatInfo = props => {
         return (
             <div>
                 <h1 className="lose">YOU LOSE!</h1>
-                <iframe src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" width="480" height="438" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p><a href="https://giphy.com/gifs/YmVNzDnboB0RQEpmLr"></a></p>
+                <iframe title="you lose" src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" width="480" height="438" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
             </div>
         )
     }

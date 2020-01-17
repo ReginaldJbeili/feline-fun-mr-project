@@ -15,7 +15,6 @@ const EnergyMetre = props => {
             })
         }, 1500)
         // return (() => clearInterval(energyCount))
-        // const handleClickFeed = 
     
     },[selectedCat])
 
@@ -25,10 +24,9 @@ const EnergyMetre = props => {
 
     return (
         <div>
-          {/* <h3>{`Energy Level: ${props.catEnergy}/5`}</h3>   */}
-          <span>Feed your cat before its' life runs out!</span>
           <progress max="5" value={`${props.catEnergy}`}></progress>
-          <button disabled={disableFeed} onClick={() => {
+          <div className="btnFlex">
+              <button className="feedBtn" disabled={disableFeed} onClick={() => {
                 
               props.setCatEnergy(prevCatEnergy => {
                 if (props.catEnergy === 5) {
@@ -42,7 +40,7 @@ const EnergyMetre = props => {
             })
             }}>FEED</button>
     
-          <button disabled ={disablePlay} onClick={() => {
+          <button className="playBtn" disabled ={disablePlay} onClick={() => {
                 props.setCatEnergy(prevCatEnergy => {
                 if (props.catEnergy === 5) {
                     setDisablePlay(!disablePlay)
@@ -54,6 +52,7 @@ const EnergyMetre = props => {
                 return prevCatEnergy +1
           })
           }}>PLAY</button>
+          </div>
         </div>
     )
 }
