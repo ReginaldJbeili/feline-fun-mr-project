@@ -3,18 +3,22 @@ import EnergyMetre from './EnergyMetre'
 
 const CatInfo = ({catInfo,catEnergy,setCatEnergy,selectedCat}) => {
 
-
     if(!catInfo) return <h2>cat info loading...</h2>
 
     const socialNeeds = `social needs ${catInfo[0].breeds[0].social_needs}`
     const healthIssues = `health issues ${catInfo[0].breeds[0].health_issues}`
-    console.log("this is all info we need", [catEnergy,socialNeeds,healthIssues]);
+    console.log("this is all info we need", [socialNeeds,healthIssues]);
     
     if(catEnergy===0) {
         return (
             <div>
                 <h1 className="lose">YOU LOSE!</h1>
-                <iframe title="you lose" src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" width="480" height="438" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+                <iframe title="you lose" src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" 
+                        width="480" 
+                        height="438" 
+                        frameBorder="0"
+                         allowFullScreen>
+                </iframe>
             </div>
         )
     }

@@ -17,7 +17,8 @@ const App = () => {
   const [catEnergy, setCatEnergy] = React.useState(null);
 
   React.useEffect(() => {
-      getCatInfo(selectedCat).then(data => {setCatInfo(data); setCatEnergy(data[0].breeds[0].energy_level)})
+      getCatInfo(selectedCat).then(data => {setCatInfo(data); 
+      setCatEnergy(data[0].breeds[0].energy_level)})
   }, [selectedCat])
 
 

@@ -8,13 +8,15 @@ const CatDropdown = ({catData, selectedCat, setSelectedCat}) => {
 
     return (
         <div>
-            
-            <select className="select" aria-label="Select Cat" value={selectedCat} onChange = {event => {  setSelectedCat(event.target.value) }}>
-                    {catData.map( cats => {
-                        
+      
+            <select className="select" 
+                    aria-label="Select Cat" 
+                    value={props.selectedCat} 
+                    onChange = {event => {  props.setSelectedCat(event.target.value) }}>
+                    {props.catData.map( cats => {
+
                         return (<option key={cats.id} value={cats.id}> {cats.name} </option>)
                     }
-
                     )}
             
             </select>

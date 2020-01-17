@@ -43,7 +43,10 @@ const EnergyMetre = ({catEnergy,setCatEnergy,selectedCat}) => {
                 setCatEnergy(prevCatEnergy => {
                 if (catEnergy === 5) {
                     setDisablePlay(!disablePlay)
-                    setTimeout(() => {setDisablePlay(disablePlay)},3000)
+                    setTimeout(() => {
+                        setDisablePlay(disablePlay);
+                        // document.body.classList.playBtn.add('greyed');
+                    },3000)
                     }
                 else if(prevCatEnergy>0 && prevCatEnergy < 5) 
                 setDisablePlay(!disablePlay)
