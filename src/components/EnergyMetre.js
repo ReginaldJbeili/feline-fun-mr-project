@@ -10,7 +10,7 @@ const EnergyMetre = ({catEnergy,setCatEnergy,selectedCat}) => {
                 return prevCatEnergy = 0}
                 return prevCatEnergy-1
             })
-        }, 1500)
+        }, 2000)
     
     },[selectedCat])
 
