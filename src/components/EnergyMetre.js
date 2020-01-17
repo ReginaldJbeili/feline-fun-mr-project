@@ -1,14 +1,13 @@
 import React from 'react'
 
-const EnergyMetre = props => {
+const EnergyMetre = ({catEnergy,setCatEnergy,selectedCat}) => {
     
     // const [catEnergy, setCatEnergy] = React.useState(5)
 // console.log(props);
-    const selectedCat = props.selectedCat;
     React.useEffect(() => {
         
         const energyCount = setInterval(() => {
-            props.setCatEnergy(prevCatEnergy => {
+            setCatEnergy(prevCatEnergy => {
                 if(prevCatEnergy === 0) {clearInterval(energyCount)
                 return prevCatEnergy = 0}
                 return prevCatEnergy-1
@@ -24,12 +23,12 @@ const EnergyMetre = props => {
 
     return (
         <div>
-          <progress max="5" value={`${props.catEnergy}`}></progress>
+          <progress max="5" value={`${catEnergy}`}></progress>
           <div className="btnFlex">
               <button className="feedBtn" disabled={disableFeed} onClick={() => {
                 
-              props.setCatEnergy(prevCatEnergy => {
-                if (props.catEnergy === 5) {
+              setCatEnergy(prevCatEnergy => {
+                if (catEnergy === 5) {
                     setDisableFeed(!disableFeed)
                     setTimeout(() => {setDisableFeed(disableFeed)},3000)
                     }
@@ -41,8 +40,8 @@ const EnergyMetre = props => {
             }}>FEED</button>
     
           <button className="playBtn" disabled ={disablePlay} onClick={() => {
-                props.setCatEnergy(prevCatEnergy => {
-                if (props.catEnergy === 5) {
+                setCatEnergy(prevCatEnergy => {
+                if (catEnergy === 5) {
                     setDisablePlay(!disablePlay)
                     setTimeout(() => {setDisablePlay(disablePlay)},3000)
                     }
