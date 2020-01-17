@@ -2,37 +2,211 @@
   text-align: center;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
 .App-header {
-  background-color: #282c34;
+  background-color: bisque;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 1.5rem;
+  color: #271500;
+  ;
 }
 
-.App-link {
-  color: #61dafb;
+.select {
+  display: block;
+  font-size: 4rem;
+  font-size: 16px;
+  color: bisque;
+  font-family: sans-serif;
+  font-weight: 700;
+  line-height: 1.3em;
+  padding: .6em 0 .3em 0;
+  min-width: 70%; 
+  box-sizing: border-box;
+  margin: 2rem auto 0 auto;
+  border: 1px solid #271500;
+  box-shadow: 0 2px 0 2px rgba(0,0,0,.04);
+  border-radius: .5em;
+  background-color: #271500;
+  background-image: linear-gradient(to bottom, #271500 0%,rgb(105, 58, 1) 100%);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.select:hover {
+  background-color: #271500;
 }
+
+.select:focus {
+  background-color: #271500;
+  box-shadow: 0 0 1px 3px #271500;
+  outline: none;
+  color: bisque;
+}
+
+img {
+  min-height: 40vh;
+  max-width: 90%;
+  object-fit: cover;
+  border: 1rem dashed #271500;
+  animation: borderFlash 1s linear infinite;
+}
+
+@keyframes borderFlash {
+  0% {
+    border-color: 271500;
+  }
+  50%{
+    border-color: #ad610a;
+  }
+  100% {
+    border-color: 271500;
+  }	
+}
+
+iframe {
+  border: 1rem dashed rgb(219, 38, 38);
+}
+
+progress[value] {
+  min-width: 60vw;
+  min-height: 1.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+  margin: 1.5rem
+}
+
+progress[value]::-webkit-progress-value {
+  background-image:
+	   -webkit-linear-gradient(-45deg, 
+	                           transparent 33%, rgba(0, 0, 0, .1) 33%, 
+	                           rgba(0,0, 0, .1) 66%, transparent 66%),
+	   -webkit-linear-gradient(top, 
+	                           rgba(255, 255, 255, .25), 
+	                           rgba(0, 0, 0, .25)),
+	   -webkit-linear-gradient(left, #09c, #f44);
+
+    border-radius: 2px; 
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+
+    
+    background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+html {
+  font-size:20px;
+  margin:0;
+  background: #0c0207;
+  }
+.marco {
+  color: whitesmoke;
+  text-align: center;
+  font-weight: 900;
+  width: 1325px;
+  height: 500px;
+  margin: 0 auto;
+  overflow: hidden;
+  border-radius: 16px;
+  margin-top: 2em;
+  }
+
+.cielo {
+  border-radius: 16px;
+  width: 1325px;
+  height: 500px;
+  background: linear-gradient(to bottom,  #0B4C5F 0%,#04B4AE 52%,#0c0207 100%); 
+  position: absolute;
+  z-index: -30;
+  top: 0;
+  margin-top: 2em;
+  }
+
+.edificios {
+  background: url('http://evasantos.com/ilustraciones/gatoCity/edificiosOne.svg');
+  height: 500px; 
+  width: 1325px;
+  z-index: -10;
+  top: 6.5em;
+  background-position: 0px 0px;
+  background-repeat: repeat-x;
+  -webkit-animation: animar_edificios 120s linear infinite;
+  -ms-animation: animar_edificios 120s linear infinite;
+  -moz-animation: animar_edificios 120s linear infinite;
+  position: absolute;
+  }
+
+
+ @keyframes  animar_edificios {
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
+  }
+  @-webkit-keyframes  animar_edificios {
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
+  }
+  @-ms-keyframes  animar_edificios {
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
+  }
+  @-moz-keyframes  animar_edificios {
+      from { background-position: 0 0; }
+      to { background-position: 100% 0; }
+  }
+ 
+.luna {
+  width: 6em;
+  height: 6em;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-box-shadow: 30px 10px 0 #F7F8E0;
+  -webkit-box-shadow: 30px 10px 0 #F7F8E0;
+  box-shadow: 30px 10px 0 #F7F8E0;
+  margin-top: 1em;
+  margin-left: 50%;
+  position: absolute;
+  z-index: -19;
+  }
+
+.muro{
+  height: 23em;
+  width: 100%;
+  background: -moz-linear-gradient(top,  #416663 0%, #0c0207 19%); 
+  background: -webkit-linear-gradient(top,  #416663 0%,#0c0207 19%); 
+  background: linear-gradient(to bottom,  #416663 0%,#0c0207 19%); 
+  bottom:0px; 
+  }
+
+.gato{
+  background: url('http://evasantos.com/ilustraciones/gatoCity/gatito.svg');
+  height: 297px; 
+  width: 507.5px;
+  margin-top: 2em;
+  margin-left: 2em;
+  z-index: 10;
+  -webkit-animation: sprite-animation 1.2s steps(16,end) infinite;
+  -moz-animation: sprite-animation 1.2s steps(16,end) infinite; 
+  -ms-animation: sprite-animation 1.2s steps(16,end) infinite; 
+  animation: sprite-animation 1.2s steps(16,end) infinite;
+  }
+
+@-webkit-keyframes sprite-animation { 
+      from { background-position: 0 0; }
+      to { background-position: -8120px 0; } 
+  }
+
+@-ms-keyframes sprite-animation { 
+      from { background-position: 0 0; }
+      to { background-position: -8120px 0; }
+  }
+
+@-moz-keyframes sprite-animation { 
+      from { background-position: 0 0; }
+      to { background-position: -8120px 0; }
+  }
+
+@keyframes sprite-animation { 
+      from { background-position: 0 0; }
+      to { background-position: -8120px 0; }
+  }
+  
