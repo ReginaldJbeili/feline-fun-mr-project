@@ -3,21 +3,22 @@ import EnergyMetre from './EnergyMetre'
 
 const CatInfo = props => {
 
-
     if(!props.catInfo) return <h2>cat info loading...</h2>
 
     const catEnergy = props.catEnergy
     const setCatEnergy = props.setCatEnergy
     const selectedCat = props.selectedCat
-    const socialNeeds = `social needs ${props.catInfo[0].breeds[0].social_needs}`
-    const healthIssues = `health issues ${props.catInfo[0].breeds[0].health_issues}`
-    console.log("this is all info we need", [catEnergy,socialNeeds,healthIssues]);
     
     if(catEnergy===0) {
         return (
             <div>
                 <h1 className="lose">YOU LOSE!</h1>
-                <iframe title="you lose" src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" width="480" height="438" frameBorder="0" class="giphy-embed" allowFullScreen></iframe><p></p>
+                <iframe title="you lose" src="https://giphy.com/embed/YmVNzDnboB0RQEpmLr" 
+                        width="480" 
+                        height="438" 
+                        frameBorder="0"
+                         allowFullScreen>
+                </iframe>
             </div>
         )
     }

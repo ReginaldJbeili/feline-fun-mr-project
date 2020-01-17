@@ -3,7 +3,7 @@
 }
 
 .App-header {
-  background: url(https://cdn5.vectorstock.com/i/1000x1000/23/04/cute-cat-in-a-cup-coffee-seamless-pattern-vector-26662304.jpg);
+  background: url(https://cdn5.vectorstock.com/i/1000x1000/23/04/cute-cat-in-a-cup-coffee-seamless-pattern-vector-26662304.jpg) repeat;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -16,14 +16,14 @@
 
 .select {
   display: block;
-  font-size: 4rem;
-  font-size: 16px;
+  font-size: 2rem;
+  padding: 0 1rem;
   color: bisque;
   font-family: sans-serif;
   font-weight: 700;
   line-height: 1.3em;
   padding: .6em 0 .3em 0;
-  min-width: 70%; 
+  min-width: 40%; 
   box-sizing: border-box;
   margin: 2rem auto 0 auto;
   border: 1px solid #271500;
@@ -46,7 +46,7 @@
 
 img {
   max-height: 30vh;
-  max-width: 70%;
+  max-width: 50%;
   object-fit: cover;
   border: 1rem dashed #271500;
   animation: borderFlash 1s linear infinite;
@@ -71,7 +71,7 @@ iframe {
 .frame {
   background-color: rgb(245, 245, 245, 0.9);
   border: 5px solid rgb(105, 58, 1);
-  max-width: 75%;
+  min-width: 75vw;
   margin: 1rem auto 2rem auto;;
 }
 
@@ -84,7 +84,7 @@ iframe {
 }
 
 progress[value] {
-  min-width: 60vw;
+  min-width: 40vw;
   min-height: 2.5rem;
   border: 10px solid black;
   border-radius: 10px;
@@ -234,12 +234,11 @@ html {
     background-color: rgba(219,87,5,1);
     font-family: 'Yanone Kaffeesatz';
     font-weight: 700;
-    font-size: 3em;
+    font-size: 1.5rem;
     display: block;
     padding: 4px;
     border-radius: 8px;
     box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
-    margin: 100px auto;
     min-width: auto;
     text-align: center;
     outline: none;
@@ -266,12 +265,11 @@ html {
   background-color: rgba(219,87,5,1);
   font-family: 'Yanone Kaffeesatz';
   font-weight: 700;
-  font-size: 3em;
+  font-size: 1.5rem;
   display: block;
   padding: 4px;
   border-radius: 8px;
   box-shadow: 0px 9px 0px rgba(219,31,5,1), 0px 9px 25px rgba(0,0,0,.7);
-  margin: 100px auto;
 	min-width: auto;
   text-align: center;
   outline: none;
