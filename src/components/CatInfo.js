@@ -13,7 +13,7 @@ const CatInfo = props => {
     const healthIssues = `health issues ${props.catInfo[0].breeds[0].health_issues}`
     console.log("this is all info we need", [catEnergy,socialNeeds,healthIssues]);
     
-    if(catEnergy==0) {
+    if(catEnergy===0) {
         return (
             <div>
                 <h1 className="lose">YOU LOSE!</h1>
