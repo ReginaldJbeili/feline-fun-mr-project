@@ -2,8 +2,9 @@ import React from 'react';
 import './App.css';
 import CatDropdown from './components/CatDropdown';
 import CatInfo from './components/CatInfo';
-import getAllCatBreeds from './utils/getAllCatBreeds'
-import getCatInfo from './utils/getCatInfo'
+import getAllCatBreeds from './utils/getAllCatBreeds';
+import getCatInfo from './utils/getCatInfo';
+import Loading from './components/Loading';
 
 const App = () => {
   const [catData, setCatData] = React.useState(null); 
@@ -21,7 +22,7 @@ const App = () => {
 
 
 
-if(!catData) return <h2>Loading...</h2>
+if(!catData) return <Loading />
 
   return (
     <div className="App">
