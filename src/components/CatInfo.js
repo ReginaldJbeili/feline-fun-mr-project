@@ -1,13 +1,13 @@
 import React from 'react'
 import EnergyMetre from './EnergyMetre'
 
-const CatInfo = props => {
+const CatInfo = ({catInfo,catEnergy,setCatEnergy,selectedCat}) => {
 
-    if(!props.catInfo) return <h2>cat info loading...</h2>
+    if(!catInfo) return <h2>cat info loading...</h2>
 
-    const catEnergy = props.catEnergy
-    const setCatEnergy = props.setCatEnergy
-    const selectedCat = props.selectedCat
+    const socialNeeds = `social needs ${catInfo[0].breeds[0].social_needs}`
+    const healthIssues = `health issues ${catInfo[0].breeds[0].health_issues}`
+    console.log("this is all info we need", [socialNeeds,healthIssues]);
     
     if(catEnergy===0) {
         return (
@@ -26,11 +26,11 @@ const CatInfo = props => {
     return (
         <div>
             <div className="frame">
-            <h1>{props.catInfo[0].breeds[0].name}</h1>
-            <p>{props.catInfo[0].breeds[0].description}</p>
+            <h1>{catInfo[0].breeds[0].name}</h1>
+            <p>{catInfo[0].breeds[0].description}</p>
             </div>
             <EnergyMetre catEnergy={catEnergy} setCatEnergy={setCatEnergy} selectedCat={selectedCat}/>
-            <img src={props.catInfo[0].url} alt={`${props.catInfo[0].breeds[0].name} cat`}></img>
+            <img src={catInfo[0].url} alt={`${catInfo[0].breeds[0].name} cat`}></img>
         </div>
     )
 }
