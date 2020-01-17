@@ -2,7 +2,6 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ## Available Scripts
 
-In the project directory, you can run:
 
 ### `npm start`
 
@@ -12,57 +11,166 @@ Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
 
-### `npm test`
+## Feline Fun Game
+![](https://media.giphy.com/media/l2JJDdD7cv4xdGGis/giphy.gif)
+by Maria and Reggie
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+---
 
-### `npm run build`
+## User Journey
+User would be able to:
+* choose from a drop-down of cats and select one
+* see the description and picture of the cat chosen while the cat is alive
+* feed the cat every few seconds
+* play with the cat
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![](https://i.imgur.com/UVDrNnX.jpg)
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## Accessibility
+![](https://i.imgur.com/UWxvxNx.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+---
 
-Instead, it will copy all the configuration files and the transitive dependencies (Webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Testing
+Should have been TDD but stumbled a bit on...
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+---
 
-## Learn More
+## Props and State
+![](https://media.giphy.com/media/8UGoPsk9dSkkcQrzT0/giphy.gif)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+---
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Code 
+![](https://i.imgur.com/ecZH4of.png)
 
-### Code Splitting
+---
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+### App
+```javascript=
+const App = () => {
+  const [catData, setCatData] = React.useState(null); 
+  React.useEffect(() => {
+      getAllCatBreeds().then(data => setCatData(data));
+  }, []);
 
-### Analyzing the Bundle Size
+  const [catInfo, setCatInfo] = React.useState(null);
+  const [selectedCat, setSelectedCat] = React.useState("abys")
+  const [catEnergy, setCatEnergy] = React.useState(null);
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+  React.useEffect(() => {
+      getCatInfo(selectedCat).then(data => {setCatInfo(data); setCatEnergy(data[0].breeds[0].energy_level)})
+  }, [selectedCat])
+  
+ if(!catData) return <Loading />
 
-### Making a Progressive Web App
+  return (
+    <div className="App">
+      <header className="App-header">
+        
+        <CatDropdown catData={catData}  selectedCat={selectedCat} setSelectedCat={setSelectedCat} />
+        <CatInfo catInfo={catInfo} catEnergy={catEnergy} setCatEnergy = {setCatEnergy} selectedCat ={selectedCat}/>
+        
+      </header>
+    </div>
+  );
+}
+```
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+---
 
-### Advanced Configuration
+### Api Calls
+* getAllCatBreeds
+* getCatInfo
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
+---
 
-### Deployment
+### EnergyMetre
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
+```javascript=
+import React from 'react'
 
-### `npm run build` fails to minify
+const EnergyMetre = ({catEnergy,setCatEnergy,selectedCat}) => {
+    
+    // const [catEnergy, setCatEnergy] = React.useState(5)
+// console.log(props);
+    React.useEffect(() => {
+        
+        const energyCount = setInterval(() => {
+            setCatEnergy(prevCatEnergy => {
+                if(prevCatEnergy === 0) {clearInterval(energyCount)
+                return prevCatEnergy = 0}
+                return prevCatEnergy-1
+            })
+        }, 1500)
+        // return (() => clearInterval(energyCount))
+    
+    },[selectedCat])
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+
+    const [disableFeed, setDisableFeed] = React.useState(false)
+    const [disablePlay, setDisablePlay] = React.useState(false)
+
+    return (
+        <div>
+          <progress max="5" value={`{catEnergy}`}></progress>
+          <div className="btnFlex">
+              <button className="feedBtn" disabled={disableFeed} onClick={() => {
+                
+              setCatEnergy(prevCatEnergy => {
+                if (catEnergy === 5) {
+                    setDisableFeed(!disableFeed)
+                    setTimeout(() => {setDisableFeed(disableFeed)},3000)
+                    }
+                else if(prevCatEnergy>0 && prevCatEnergy < 5) 
+                    setDisableFeed(!disableFeed)
+                    setTimeout(() => {setDisableFeed(disableFeed)},1500)
+                return prevCatEnergy +1
+            })
+            }}>FEED</button>
+    
+          <button className="playBtn" disabled ={disablePlay} onClick={() => {
+                setCatEnergy(prevCatEnergy => {
+                if (catEnergy === 5) {
+                    setDisablePlay(!disablePlay)
+                    setTimeout(() => {setDisablePlay(disablePlay)},3000)
+                    }
+                else if(prevCatEnergy>0 && prevCatEnergy < 5) 
+                setDisablePlay(!disablePlay)
+                setTimeout(() => {setDisablePlay(disablePlay)},1000)
+                return prevCatEnergy +1
+          })
+          }}>PLAY</button>
+          </div>
+        </div>
+    )
+}
+
+export default EnergyMetre
+
+```
+
+---
+
+# Demo
+
+---
+
+## Moving Forward
+* add more interaction - e.g. greyed out button on click, user ability to change the background
+* about/how to play section
+* add pictures/icons interacting with the cat on the frame
+* add tests
+* base button effect on api properties
+* have the progress bar start full for every cat
+
+---
+
+# Thanks!
+
+![](https://media.giphy.com/media/bTvCkBTQDIPyE/giphy.gif)
